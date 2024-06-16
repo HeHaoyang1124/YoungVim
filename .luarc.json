@@ -1,0 +1,12 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "python_toggle",
+        "cmd_toggle",
+        "powershell_toggle",
+        "cmake_launch_program"
+    ],
+    "diagnostics.disable": [
+        "unused-local"
+    ]
+}

@@ -1,0 +1,24 @@
+Language: Cpp
+BasedOnStyle: LLVM
+IndentWidth: 4
+TabWidth: 4
+AlwaysBreakTemplateDeclarations: true
+AllowShortFunctionsOnASingleLine: Inline
+BreakAfterJavaFieldAnnotations: true
+BreakBeforeBraces: Linux
+SpaceAfterCStyleCast: true
+IndentCaseLabels: true
+AccessModifierOffset: -4
+BreakBeforeBraces: Custom
+BraceWrapping:
+ AfterNamespace: false
+ AfterClass: false
+ AfterFunction: true
+
+BreakConstructorInitializersBeforeComma: true
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+BinPackParameters: false
+ReflowComments: false
+ColumnLimit: 80
+
+AlignArrayOfStructures: Left
