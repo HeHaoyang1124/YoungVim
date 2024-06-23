@@ -20,21 +20,6 @@ return {
 
 
         local on_attach = function(_, bufnr)
-            local opt = {
-                noremap = true,
-                silent = true,
-            }
-            vim.keymap.set("n", "<C-I>", "<cmd>lua vim.lsp.buf.format()<CR>", opt)
-            vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opt)
-            vim.keymap.set("n", "<leader>fe", "<cmd>Lspsaga code_action<CR>", opt)
-            vim.keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<CR>", opt)
-            vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
-
-            vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", opt)
-            vim.keymap.set("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
-            vim.keymap.set("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<CR>", opt)
-            vim.keymap.set("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opt)
-            -- vim.keymap.set("n", "go", "<cmd>Lspsaga outline<CR>", opt)
             vim.cmd([[Lspsaga winbar_toggle]])
         end
 
@@ -50,5 +35,17 @@ return {
                 end,
             }
         })
-    end
+    end,
+
+    keys = {
+        { "<C-I>",      "<cmd>lua vim.lsp.buf.format()<CR>" },
+        { "<leader>rn", "<cmd>Lspsaga rename<CR>" },
+        { "<leader>fe", "<cmd>Lspsaga code_action<CR>" },
+        { "gd",         "<cmd>Lspsaga goto_definition<CR>" },
+        { "gD",         "<cmd>lua vim.lsp.buf.declaration()<CR>" },
+        { "K",          "<cmd>Lspsaga hover_doc<cr>" },
+        { "gl",         "<cmd>Lspsaga show_line_diagnostics<CR>" },
+        { "gj",         "<cmd>Lspsaga diagnostic_jump_next<CR>" },
+        { "gk",         "<cmd>Lspsaga diagnostic_jump_prev<CR>" },
+    }
 }
