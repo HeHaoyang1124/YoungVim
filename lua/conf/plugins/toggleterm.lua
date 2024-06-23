@@ -9,18 +9,38 @@ return {
             auto_scroll = true,
         })
 
-        local function toggle_cmd(cmd)
+        local function toggle_cmd(cmd, close_on_exit)
             local Terminal = require('toggleterm.terminal').Terminal
             local term     = Terminal:new({
                 cmd = cmd,
-                direction = 'horizontal'
+                direction = 'horizontal',
+                close_on_exit = close_on_exit
             })
             term:toggle()
         end
 
-        function python_toggle() toggle_cmd("python") end
+        function python_toggle() toggle_cmd("python", true) end
 
-        function powershell_toggle() toggle_cmd("powershell") end
+        function powershell_toggle() toggle_cmd("powershell", true) end
+
+        local cmake_generator    = '"MinGW Makefiles"'
+        local cmake_type         = 'Debug'
+
+        local cmake_generate_cmd =
+            "cmake -DCMAKE_BUILD_TYPE:STRING=" .. cmake_type .. " "
+            .. "-DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE "
+            .. "--no-warn-unused-cli "
+            .. "-S" .. vim.fn.getcwd() .. " "
+            .. "-G" .. cmake_generator
+
+        local cmake_build_cmd    =
+            "cmake --build " .. vim.fn.getcwd() .. "/build "
+            .. "--config " .. cmake_type .. " "
+            .. "--target all -j 6 --"
+
+        function cmake_generate() toggle_cmd(cmake_generate_cmd, false) end
+
+        function cmake_build() toggle_cmd(cmake_build_cmd, false) end
 
         local opts = { buffer = 0 }
     end,
@@ -33,5 +53,7 @@ return {
         { "<leader>py", "<Cmd>lua python_toggle()<CR>",                     noremap = true, silent = true },
         { "<leader>ps", "<Cmd>lua powershell_toggle()<CR>",                 noremap = true, silent = true },
         { "<leader>tl", "<Cmd>lua cmake_launch_program()<CR>",              noremap = true, silent = true },
+        { "<C-G>",      "<Cmd>lua cmake_generate()<CR>",                    noremap = true, silent = true },
+        { "<C-B>",      "<Cmd>lua cmake_build()<CR>",                       noremap = true, silent = true },
     }
 }

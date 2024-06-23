@@ -24,13 +24,23 @@ vim.keymap.set({ "n", "v" }, "<M-l>", "5l", opt)
 vim.keymap.set({ "n", "v" }, "<M-h>", "5h", opt)
 vim.keymap.set({ "n", "v" }, "<leader>h", "^", opt)
 vim.keymap.set({ "n", "v" }, "<leader>l", "$", opt)
-
--- cmake settings
-local cmake_generator = '"MinGW Makefiles"'
-local cmake_type      = 'Debug'
-
-vim.keymap.set("n", "<C-R>", "<CMD>!start ./build/application.exe<CR>", opt)
-vim.keymap.set("n", "<C-G>", "<CMD>!cmake -S. -Bbuild -G" .. cmake_generator .. "<CR>", opt)
-vim.keymap.set("n", "<C-B>", "<cmd>!cmake --build " .. vim.fn.getcwd() .. "/build "
-    .. "--config " .. cmake_type .. " --target all -j 6 --<CR>")
-
+--
+-- -- cmake settings
+-- local cmake_generator = '"MinGW Makefiles"'
+-- local cmake_type      = 'Debug'
+--
+-- vim.keymap.set("n", "<C-R>", "<CMD>!start ./build/application.exe<CR>", opt)
+-- vim.keymap.set("n", "<C-G>", "<cmd>!"
+--     .. "cmake -DCMAKE_BUILD_TYPE:STRING=" .. cmake_type .. " "
+--     .. "-DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE "
+--     .. "--no-warn-unused-cli "
+--     .. "-S" .. vim.fn.getcwd() .. " "
+--     .. "-G" .. cmake_generator .. " "
+--     .. "<CR>")
+--
+-- vim.keymap.set("n", "<C-B>", "<cmd>!"
+--     .. "cmake --build " .. vim.fn.getcwd() .. "/build "
+--     .. "--config " .. cmake_type .. " "
+--     .. "--target all -j 6 --" 
+--     .. "<CR>")
+--
