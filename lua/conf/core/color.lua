@@ -28,8 +28,10 @@ M.gruvbox = {
     dark   = '#a89984'
 }
 
-M.theme = M.catppuccin
-M.themeName = "catppuccin"
+-- M.theme = M.catppuccin
+-- M.themeName = "catppuccin"
+M.themeName = "gruvbox"
+M.theme = M.gruvbox
 M.transparent = true
 
 return M

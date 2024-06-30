@@ -2,7 +2,7 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     -- event = "VeryLazy",
-    -- lazy = true,
+    lazy = true,
     config = function()
         require("catppuccin").setup({
             flavour = "auto", -- latte, frappe, macchiato, mocha

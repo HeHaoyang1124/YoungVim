@@ -27,7 +27,7 @@ return
                 }
             },
             sections = {
-                lualine_a = { { 'mode', separator = { left = '', right = '' } } },
+                lualine_a = { { 'mode', separator = { --[[ left = '', ]] right = '' } } },
                 lualine_b = {
                     'branch',
                     {
@@ -68,7 +68,7 @@ return
                 },
                 lualine_x = { 'encoding', { 'datetime', style = '%H:%M' } },
                 lualine_y = { { 'progress', icon = { '', align = 'left' } } },
-                lualine_z = { 'fileformat', { 'hostname', separator = { left = '', right = ''} } }
+                lualine_z = { 'fileformat', { 'hostname', separator = { left = '', --[[ right = '' ]]} } }
             },
             tabline = {},
             winbar = {},

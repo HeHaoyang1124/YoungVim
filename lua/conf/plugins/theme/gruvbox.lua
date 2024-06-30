@@ -1,7 +1,7 @@
 return {
     "ellisonleao/gruvbox.nvim",
-    lazy = true,
-    event = "VeryLazy",
+    -- lazy = true,
+    -- event = "VeryLazy",
     -- priority = 1000,
     config = function()
         require("gruvbox").setup({
@@ -27,7 +27,8 @@ return {
             palette_overrides = {},
             overrides = {},
             dim_inactive = false,
-            transparent_mode = true,
+            transparent_mode = require("conf.core.color").transparent,
         })
+        vim.cmd [[colorscheme gruvbox]]
     end
 }
