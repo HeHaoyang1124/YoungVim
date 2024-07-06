@@ -14,13 +14,23 @@ return {
                     telemetry = { enable = false },
                 },
             },
-            clangd = {},
-            cmake = {},
+            clangd = {
+                on_attach = function(client, bufnr)
+                    client.server_capabilities.document_formatting = false
+                    client.server_capabilities.document_range_formatting = false
+                    local function buf_set_keymap(...)
+                        vim.api.nvim_buf_set_keymap(bufnr, ...)
+                    end
+                    require("keybindings").mapLSP(buf_set_keymap)
+                end,
+            },
+            cmake = {
+            },
         }
 
 
         local on_attach = function(_, bufnr)
-            vim.cmd([[Lspsaga winbar_toggle]])
+            -- vim.cmd([[Lspsaga winbar_toggle]])
         end
 
         require("mason").setup()
