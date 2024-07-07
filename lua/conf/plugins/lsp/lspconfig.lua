@@ -53,6 +53,8 @@ return {
         { "<leader>fe", "<cmd>Lspsaga code_action<CR>" },
         { "gd",         "<cmd>Lspsaga goto_definition<CR>" },
         { "gD",         "<cmd>lua vim.lsp.buf.declaration()<CR>" },
+        { "gp",         "<cmd>Lspsaga peek_definition<CR>" },
+        { "gr",         "<cmd>Lspsaga finder<CR>" },
         { "K",          "<cmd>Lspsaga hover_doc<cr>" },
         { "gl",         "<cmd>Lspsaga show_line_diagnostics<CR>" },
         { "gj",         "<cmd>Lspsaga diagnostic_jump_next<CR>" },
