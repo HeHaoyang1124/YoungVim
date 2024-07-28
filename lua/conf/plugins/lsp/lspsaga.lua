@@ -65,7 +65,7 @@ return {
             },
 
             symbol_in_winbar = {
-                enable = true,
+                enable = false,
             },
             outline = {
                 win_position = "right",

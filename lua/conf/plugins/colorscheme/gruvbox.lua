@@ -1,6 +1,6 @@
 return {
     "ellisonleao/gruvbox.nvim",
-    -- lazy = true,
+    lazy = true,
     -- event = "VeryLazy",
     -- priority = 1000,
     config = function()
@@ -30,5 +30,6 @@ return {
             transparent_mode = require("conf.core.color").transparent,
         })
         vim.cmd [[colorscheme gruvbox]]
+        vim.cmd [[hi StatusLine guifg=#3C3836]]
     end
 }

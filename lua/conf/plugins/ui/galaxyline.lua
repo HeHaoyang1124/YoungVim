@@ -2,8 +2,8 @@ return {
     'glepnir/galaxyline.nvim',
     branch = 'main',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    lazy = false,
-    event = { "BufReadPre", "BufNewFile" },
+    lazy = true,
+    -- event = { "BufReadPre", "BufNewFile" },
     config = function()
         local gl = require('galaxyline')
         local condition = require('galaxyline.condition')
@@ -196,6 +196,7 @@ return {
             'NvimTree',
             "neo-tree",
             "alpha",
+            "aerial",
         }
 
 

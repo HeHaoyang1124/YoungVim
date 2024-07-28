@@ -3,7 +3,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig",
+        "williamboman/mason-lspconfig.nvim",
         "nvimdev/lspsaga.nvim",
     },
     config = function()
@@ -24,8 +24,8 @@ return {
                     require("keybindings").mapLSP(buf_set_keymap)
                 end,
             },
-            cmake = {
-            },
+            cmake = {},
+            glsl_analyzer = {},
         }
 
 

@@ -27,8 +27,10 @@ if not status_ok then
 end
 
 lazy.setup({
-    { import = "conf.plugins" },
-    { import = "conf.plugins.lsp" },
+    { import = "conf.plugins.coding" },
+    { import = "conf.plugins.colorscheme" },
     { import = "conf.plugins.dap" },
-    { import = "conf.plugins.theme" },
+    { import = "conf.plugins.editor" },
+    { import = "conf.plugins.lsp" },
+    { import = "conf.plugins.ui" },
 })

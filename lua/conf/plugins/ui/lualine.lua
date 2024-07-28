@@ -2,15 +2,15 @@ return
 {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    -- lazy = true,
-    event = "VeryLazy",
+    -- event = "VeryLazy",
     -- priority = 1000,
-    -- event = { "BufReadPre", "BufNewFile" },
+    lazy = false,
     config = function()
         require('lualine').setup {
             options = {
                 icons_enabled = true,
-                theme = 'auto',
+                -- theme = 'gruvbox-material',
+                theme = require("conf.core.color").themeName == "gruvbox" and 'gruvbox-material' or 'auto',
                 component_separators = { left = '', right = '' },
                 section_separators = { left = '', right = '' },
                 disabled_filetypes = {
@@ -27,7 +27,7 @@ return
                 }
             },
             sections = {
-                lualine_a = { { 'mode', separator = { --[[ left = '', ]] right = '' } } },
+                lualine_a = { { 'mode', separator = { left = require("conf.core.color").themeName == "catppuccin" and '' or '', right = '' } } },
                 lualine_b = {
                     'branch',
                     {
@@ -45,7 +45,7 @@ return
                             info  = ' ', -- Changes diagnostics' info color.
                             hint  = '󰌶 ', -- Changes diagnostics' hint color.
                         }
-                    }
+                    },
                 },
                 lualine_c = {
                     {
@@ -64,11 +64,34 @@ return
                             alpha = 'Alpha',
                             aerial = "aerial"
                         },
-                    }
+                        use_mode_colors = false,
+                    },
                 },
-                lualine_x = { 'encoding', { 'datetime', style = '%H:%M' } },
-                lualine_y = { { 'progress', icon = { '', align = 'left' } } },
-                lualine_z = { 'fileformat', { 'hostname', separator = { left = '', --[[ right = '' ]]} } }
+                lualine_x = {
+                    'encoding', { 'datetime', style = '%H:%M' },
+                    { 'progress', icon = { '', align = 'left' } },
+                },
+                lualine_y = { {
+                    function()
+                        local msg = 'No Active Lsp'
+                        local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+                        local clients = vim.lsp.get_active_clients()
+                        if next(clients) == nil then
+                            return msg
+                        end
+                        for _, client in ipairs(clients) do
+                            local filetypes = client.config.filetypes
+                            if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+                                return client.name
+                            end
+                        end
+                        return msg
+                    end,
+                    icon = ' LSP:',
+                    color = { gui = 'bold' },
+                },
+                },
+                lualine_z = { 'fileformat', { 'hostname', separator = { left = '', right = require("conf.core.color").themeName == "catppuccin" and '' or '' } } }
             },
             tabline = {},
             winbar = {},

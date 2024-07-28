@@ -18,7 +18,7 @@ vim.o.showtabline = 1
 
 vim.opt.splitright = true
 
--- vim.opt.clipboard:append("unnamedplus")
+vim.opt.clipboard:append("unnamedplus")
 
 vim.o.termguicolors = true
 

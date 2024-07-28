@@ -1,4 +1,3 @@
-require("conf.core.keymap")
 require("conf.core.options")
-require("conf.lazy")
-
+require("conf.core.keymap")
+require("conf.plugins.lazy")

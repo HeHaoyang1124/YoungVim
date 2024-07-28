@@ -17,7 +17,7 @@ return {
                 middle_mouse_command = nil, -- can be a string | function, | false see "Mouse actions"
                 indicator = {
                     icon = '|', -- this should be omitted if indicator style is not 'icon'
-                    style = 'none'
+                    style = 'icon'
                     -- style = 'icon' -- 'icon' | 'underline' | 'none',
                 },
                 buffer_close_icon = '󰅖',
@@ -35,7 +35,7 @@ return {
                 show_duplicate_prefix = true,    -- whether to show duplicate buffer prefix
                 duplicates_across_groups = true, -- whether to consider duplicate paths in different groups as duplicates
                 persist_buffer_sort = true,      -- whether or not custom sorted buffers should persist
-                move_wraps_at_ends = false,      -- whether or not the move command "wraps" at the first or last position
+                move_wraps_at_ends = true,      -- whether or not the move command "wraps" at the first or last position
                 separator_style = "thin",       -- "slant" | "slope" | "thick" | "thin" | { 'any', 'any' },
                 enforce_regular_tabs = false,
                 always_show_bufferline = true,

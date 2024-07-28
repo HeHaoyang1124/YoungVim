@@ -9,7 +9,6 @@ BreakBeforeBraces: Linux
 SpaceAfterCStyleCast: true
 IndentCaseLabels: true
 AccessModifierOffset: -4
-BreakBeforeBraces: Custom
 BraceWrapping:
  AfterNamespace: false
  AfterClass: false
