@@ -37,7 +37,7 @@ return {
                 type = "cppdbg",
                 request = "launch",
                 program = function()
-                   return vim.fn.getcwd() .. "./build/application.exe"
+                   return vim.fn.getcwd() .. "./bin/application.exe"
                 end,
                 cwd = '${workspaceFolder}',
                 stopAtEntry = true,
